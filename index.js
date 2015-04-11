@@ -5,7 +5,7 @@ app.use(express.static('client'));
 app.get('/coleta/:id/:value', require('./server/coleta'));
 app.get('/coleta/listall', require('./server/listall'));
 
-var server = app.listen(80, function () {
+var server = app.listen(process.env.PORT, function () {
   var host = server.address().address;
   var port = server.address().port;
 });
