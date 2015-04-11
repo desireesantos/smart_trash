@@ -1,0 +1,22 @@
+{
+  "name": "smart_trash",
+  "version": "1.0.0",
+  "description": "Lixeira Inteligente",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/desireesantos/smart_trash.git"
+  },
+  "author": "Todos",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/desireesantos/smart_trash/issues"
+  },
+  "homepage": "https://github.com/desireesantos/smart_trash",
+  "dependencies": {
+    "express": "~4.12.3"
+  }
+}
