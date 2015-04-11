@@ -23,6 +23,7 @@
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
+
 IPAddress ip(192, 168, 2, 15);
 
 // Google DNS
@@ -33,13 +34,12 @@ IPAddress myDns(8, 8, 8, 8);
 // (port 80 is default for HTTP):
 // EthernetServer server(80);
 
-//
-char serverName[] = "smart-trash.app.hackinpoa.tsuru.io";    // name address for Google (using DNS)
+char serverName[] = "smart-trash.app.hackinpoa.tsuru.io";
 
 EthernetClient sendClient;
 
 unsigned long lastConnectionTime = 0;             // last time you connected to the server, in milliseconds
-const unsigned long postingInterval = 1L * 1000L; // Every second (10000)
+const unsigned long postingInterval = 10L * 1000L; // Every second (10000)
 
 String postData;
 
@@ -133,6 +133,8 @@ void readResponse() {
 
 // this method makes a HTTP connection to the server:
 void httpRequest(int sensor, int value) {
+  Serial.println("sending...");
+    
   // close any connection before send a new request.
   // This will free the socket on the WiFi shield
   sendClient.stop();
@@ -140,8 +142,9 @@ void httpRequest(int sensor, int value) {
   String path = "/coleta/" + String(sensor) + "/" + String(value);
 
   // if there's a successful connection:
-  if (sendClient.connect(serverName, 80)) {
-    Serial.println("connecting...");
+  int connected = sendClient.connect(serverName, 80);
+  if (connected) {
+    Serial.println("connected");
     // send the HTTP PUT request:
     sendClient.println("GET " + path + " HTTP/1.1");
     sendClient.println("Host: smart-trash.app.hackinpoa.tsuru.io");
@@ -149,19 +152,23 @@ void httpRequest(int sensor, int value) {
     sendClient.println("Connection: close");
     sendClient.println();
 
+    Serial.println("sent");
+
     //sendClient.print("Content-Length: ");
     //sendClient.println(postData.length());
     //sendClient.println();
     //sendClient.println(postData);
-    
-    sendClient.println();
+    // sendClient.println();
 
     // note the time that the connection was made:
     lastConnectionTime = millis();
+
+    // give time to se
+    //delay(1);
   }
   else {
     // if you couldn't make a connection:
-    Serial.println("connection failed");
+    Serial.println("connection failed" + String(connected));
   }
 }
 
