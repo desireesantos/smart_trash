@@ -12,11 +12,14 @@ html, body {
 }
 
 #top_bar {
-    height: 76px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
     background-color: #2d2233;
     background-image: '/img/olaa.png';
     color: white;
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    z-index:99999;
 }
 #top_about {
     height: 150px;
@@ -71,13 +74,13 @@ html, body {
 }
 
 #map-canvas {
-    position: absolute;
-    top: 77px;  
     width: 100%;
     display: block;
     margin: 0; 
     overflow: auto;
     bottom: 0;
+    position: absolute;
+    top: 76px;
 }
 
 .helper {
@@ -137,4 +140,41 @@ html, body {
 .helper-content img {
     vertical-align: middle;
     margin-right: 10px
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: table;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: +1000;
+    animation-duration: .3s;
+}
+
+.overlay-inner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center center;
+	perspective: 1300px;
+}
+
+.modal {
+    border: 1px solid silver;
+    background-color: #8DC349;
+    text-align: left;
+	overflow: auto;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    overflow-x: hidden;
+    display: inline-block;
+    min-height: 350px;
+    min-width: 700px;
+    padding: 20px 30px;
 }

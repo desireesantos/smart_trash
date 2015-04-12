@@ -1,13 +1,8 @@
 var trashs = { };
 
-var position = {
-    '0': { lat: -29.978039, lng: -51.114759 },
-    '1': { lat: -29.970000, lng: -51.100000 }
-}
-
-var counter = {
-    '0': 0, 
-    '1': 0
+var def = {
+    '0': { type: 'Residuo orgânico', position: { lat: -29.978039, lng: -51.114759 } },
+    '1': { type: 'Plástico', position: { lat: -29.970000, lng: -51.100000 } }
 }
 
 function save(id, value) {
@@ -17,8 +12,8 @@ function save(id, value) {
         value: value,
         full: value < 10,    
         date: new Date(),
-        position : position[id],
-        counter: ++counter[id]
+        position : def[id].position,
+        type: def[id].type
     };
     
     return trashs[id];

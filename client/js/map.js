@@ -71,9 +71,9 @@ function createInfoWindow(value) {
 
     return new google.maps.InfoWindow({ content: 
         '<p>Identificação: ' + value.id + '</p>' + 
-        '<p>Sensor: ' + value.value + '</p>' + 
+        '<p>Tipo: ' + value.type + '</p>' + 
         '<p>Última leitura: ' + time + '</p>' + 
-        '<p>Contador: ' + value.counter + '</p>' + 
+        '<p>Sensor: ' + value.value + '</p>' + 
         (value.full ? '<p style="color:red; text-align: center; font-weight: bold;">Lixeira cheia</p>' : '')
     });
 }
