@@ -6,7 +6,6 @@
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
       
-      //"/images/trash-full-1.png"
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(),
         title: "Lixeira 1",
