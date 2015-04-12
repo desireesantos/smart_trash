@@ -74,7 +74,7 @@ function createInfoWindow(value) {
         '<p>Sensor: ' + value.value + '</p>' + 
         '<p>Última leitura: ' + time + '</p>' + 
         '<p>Contador: ' + value.counter + '</p>' + 
-        (value.full ? '<p style="color:red">Lixeira cheia</p>' : '')
+        (value.full ? '<p style="color:red; text-align: center; font-weight: bold;">Lixeira cheia</p>' : '')
     });
 }
 
