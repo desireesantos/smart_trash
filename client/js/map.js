@@ -28,7 +28,7 @@ function initialize() {
                 icon: value.empty ? '/img/empty.png' : '/img/full.png',
                 map: map
             });
-            
+                 
             infos[key] = value;
            
             google.maps.event.addListener(markers[key], 'mouseover', function() {
@@ -67,5 +67,3 @@ function createInfoWindow(value) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-   
