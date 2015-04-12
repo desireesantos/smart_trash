@@ -15,7 +15,7 @@ function save(id, value) {
     trashs[id] = {
         id: id,
         value: value,
-        empty: value > 10,    
+        full: value < 10,    
         date: new Date(),
         position : position[id],
         counter: ++counter[id]

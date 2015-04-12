@@ -25,9 +25,10 @@ function initialize() {
             markers[key] = new google.maps.Marker({
                 position: new google.maps.LatLng(value.position.lat, value.position.lng),
                 // title: 'Trash Id ' + key,
-                icon: value.empty ? '/img/empty.png' : '/img/full.png',
+                icon: value.full ? '/img/full.png' : '/img/empty.png',
                 map: map
             });
+            
                  
             infos[key] = value;
            
@@ -46,20 +47,19 @@ function initialize() {
     socket.on('trash-change', function(value) {
         console.log('change', value);
         var marker = markers[value.id];
-        marker.setIcon(value.empty ? '/img/empty.png' : '/img/full.png');
+        marker.setIcon(value.full ? '/img/full.png' : '/img/empty.png');
         marker.setAnimation(google.maps.Animation.BOUNCE);
-        
-        setTimeout(function() { marker.setAnimation(null); }, 1050);
-        
+        marker.setVisible(!$('#coleta').is('.active') || value.full);
         infos[value.id] = value;
+        setTimeout(function() { marker.setAnimation(null); }, 1050);
     });
     
     $('#coleta').on('click', function() {
         var $el = $(this);
-        
         $el.toggleClass('active');
-    
-    
+        $.each(markers, function (key, marker) {
+            marker.setVisible(!$el.is('.active') || infos[key].full);
+        });
     });
     
 }
@@ -70,11 +70,11 @@ function createInfoWindow(value) {
     var time = diff > 60 ? moment(value.date).fromNow() : (diff + ' seconds ago');
 
     return new google.maps.InfoWindow({ content: 
-        '<p>Trash ID: ' + value.id + '</p>' + 
+        '<p>Identificação: ' + value.id + '</p>' + 
         '<p>Sensor: ' + value.value + '</p>' + 
-        '<p>Last read: ' + time + '</p>' + 
-        '<p>Counter read: ' + value.counter + '</p>' + 
-        '<p>' + (!value.empty ? '<b style="color:red">Trash full</b>' : '<b>Trash empty</b>') + '</p>'
+        '<p>Última leitura: ' + time + '</p>' + 
+        '<p>Contador: ' + value.counter + '</p>' + 
+        (value.full ? '<p style="color:red">Lixeira cheia</p>' : '')
     });
 }
 
