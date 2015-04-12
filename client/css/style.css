@@ -19,12 +19,12 @@ html, body {
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-#top_about{
+#top_about {
     height: 150px;
     background-color: #8dc349 !important;
 }
 
-#top_about h1{
+#top_about h1 {
     margin: 0;
     padding-top: 10px;
     font-size: 60px;
@@ -32,7 +32,7 @@ html, body {
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-#content p{
+#content p {
     color: black;
     font-size: 20px; 
     margin: 4em 15% 10em;
@@ -41,7 +41,7 @@ html, body {
 #top_bar img { 
     width: 50px;
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 #top_bar a {
@@ -65,8 +65,9 @@ html, body {
 #top_bar span{
     display: inline-block;
     position: relative;
-    top:-15px;
-    font-size: 20px; 
+    top:-18px;
+    left: 10px;
+    font-size: 30px; 
 }
 
 #map-canvas {

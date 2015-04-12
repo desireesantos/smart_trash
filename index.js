@@ -6,9 +6,6 @@ var trashs = require('./server/trash');
 
 // IO connection
 io.on('connection', function(socket){
-    //socket.on('disconnect', function(){
-    //    console.log('user disconnected');
-    //});
     io.emit('trash-init', trashs.all);
 });
 
@@ -26,10 +23,9 @@ app.get('/coleta/:id/:value', function (req, res) {
 });
 
 // usado apenas para debug
-app.get('/coleta/listall', function (req, res) {
-    res.send(trashs.all);  
-});
-
+// app.get('/coleta/listall', function (req, res) {
+//     res.send(trashs.all);  
+// });
 
 http.listen(process.env.PORT || 80, function(){
   console.log('listening on *:' + (process.env.PORT || 80));
