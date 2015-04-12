@@ -10,7 +10,8 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById('map-canvas'), options);
         
     var markers = {};
-    var info = {};
+    var infos = {};
+    var infoWindow = null;
     var socket = io();
     
     socket.on('trash-init', function(data) {
@@ -23,15 +24,20 @@ function initialize() {
         
             markers[key] = new google.maps.Marker({
                 position: new google.maps.LatLng(value.position.lat, value.position.lng),
-                title: 'Trash Id ' + key,
+                // title: 'Trash Id ' + key,
                 icon: value.empty ? '/img/empty.png' : '/img/full.png',
                 map: map
             });
             
-            info[key] = value;
+            infos[key] = value;
            
-            google.maps.event.addListener(markers[key], 'click', function() {
-                createInfo(info[key]).open(map, markers[key]);
+            google.maps.event.addListener(markers[key], 'mouseover', function() {
+                infoWindow = createInfoWindow(infos[key]);
+                infoWindow.open(map, markers[key]);
+            });
+           
+            google.maps.event.addListener(markers[key], 'mouseout', function() {
+                infoWindow.close();
             });
             
         });
@@ -41,12 +47,12 @@ function initialize() {
         console.log('change', value);
         var marker = markers[value.id];
         marker.setIcon(value.empty ? '/img/empty.png' : '/img/full.png');
-        info[value.id] = value;
+        infos[value.id] = value;
     });
     
 }
 
-function createInfo(value) {
+function createInfoWindow(value) {
 
     var diff = moment().diff(moment(value.date), 'seconds');
     var time = diff > 60 ? moment(value.date).fromNow() : (diff + ' seconds ago');
@@ -56,7 +62,7 @@ function createInfo(value) {
         '<p>Sensor: ' + value.value + '</p>' + 
         '<p>Last read: ' + time + '</p>' + 
         '<p>Counter read: ' + value.counter + '</p>' + 
-        '<p>Trash full? ' + (!value.empty ? '<b style="color:red">yes</b>' : 'no') + '</p>'
+        '<p>' + (!value.empty ? '<b style="color:red">Trash full</b>' : '<b>Trash empty</b>') + '</p>'
     });
 }
 
