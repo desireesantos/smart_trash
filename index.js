@@ -15,6 +15,7 @@ io.on('connection', function(socket){
 // Routing static files
 app.use(express.static('client'));
 
+<<<<<<< Updated upstream
 // Save new collect value
 app.get('/coleta/:id/:value', function (req, res) {
     var id = req.params.id;
@@ -32,4 +33,9 @@ app.get('/coleta/listall', function (req, res) {
 
 http.listen(process.env.PORT || 80, function(){
   console.log('listening on *:' + (process.env.PORT || 80));
+=======
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+>>>>>>> Stashed changes
 });
