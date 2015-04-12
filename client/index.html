@@ -1,31 +1,19 @@
 <html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJQ59nuKUo1aSnhH0EV_UyJZSu0t3XU-4&sensor=true">
-    </script>
- <style type="text/css">
-   .labels {
-     color: white;
-     background-color: red;
-     font-family: "Lucida Grande", "Arial", sans-serif;
-     font-size: 10px;
-     text-align: center;
-     width: 10px;     
-     white-space: nowrap;
-   }
- </style>    
-  </head>
-  <body>
-    <div id="top_bar"> 
-       <a href="/">Coleta</a>
-       <a href="sobre.html">Sobre</a>
-       <img src="/img/logo.png">
-       <span>Smart Trash</span>
-    </div>   
-    <div id="map-canvas"></div>
-  </body>
-  <script type="text/javascript" src="/js/map.js"></script>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJQ59nuKUo1aSnhH0EV_UyJZSu0t3XU-4&sensor=true"></script>
+    </head>
+    <body>
+        <div id="top_bar"> 
+           <a href="sobre.html">Sobre</a>
+           <a href="#" id="coleta">Coleta</a>
+           <img src="/img/logo.png">
+           <span>Smart Trash</span>
+        </div>   
+        <div id="map-canvas"></div>
+    </body>
+    <script type="text/javascript" src="/js/map.js"></script>
 </html>

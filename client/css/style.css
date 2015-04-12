@@ -5,64 +5,76 @@
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#top_bar{
-	height: 76px;
-	background-color: #2d2233;
-	background-image: '/img/olaa.png';
+#top_bar {
+    height: 76px;
+    background-color: #2d2233;
+    background-image: '/img/olaa.png';
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 #top_about{
-	height: 150px;
-	background-color: #8dc349 !important;
+    height: 150px;
+    background-color: #8dc349 !important;
 }
 
 #top_about h1{
-	margin: 0;
-	padding-top: 10px;
-	font-size: 60px;
-	text-align: center;
-	font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 0;
+    padding-top: 10px;
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 #content p{
-  color: black;
-  font-size: 20px; 
-  margin: 4em 15% 10em;
+    color: black;
+    font-size: 20px; 
+    margin: 4em 15% 10em;
 }
 
 #top_bar img { 
-	width: 50px;
-	margin-top: 2px;
-	margin-left: 10px;
-	}
+    width: 50px;
+    margin-top: 2px;
+    margin-left: 10px;
+}
 
-#top_bar a{
-	color: white;
-	text-decoration: none;
-	display: inline-block;
-	float: right;
-	padding: 30px 30px 0px 0px;
+#top_bar a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin: 20px 30px 0px 0px;
+    padding: 8px 14px;
+}
+
+#top_bar a:hover {
+    text-decoration: underline;
+}
+
+#top_bar a.active {
+    background-color: #8DC349;
+    border-radius: 8px;
 }
 
 #top_bar span{
-	display: inline-block;
-	position: relative;
-	top:-15px;
-	font-size: 20px; 
+    display: inline-block;
+    position: relative;
+    top:-15px;
+    font-size: 20px; 
 }
 
 #map-canvas {
-	position: absolute;
-	top: 77px;  
-	height: 100%; 
-	margin: 0; 
-	padding: 0;
+    position: absolute;
+    top: 77px;  
+    width: 100%;
+    display: block;
+    margin: 0; 
+    overflow: auto;
+    bottom: 0;
 }

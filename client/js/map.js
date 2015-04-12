@@ -47,7 +47,19 @@ function initialize() {
         console.log('change', value);
         var marker = markers[value.id];
         marker.setIcon(value.empty ? '/img/empty.png' : '/img/full.png');
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        
+        setTimeout(function() { marker.setAnimation(null); }, 1050);
+        
         infos[value.id] = value;
+    });
+    
+    $('#coleta').on('click', function() {
+        var $el = $(this);
+        
+        $el.toggleClass('active');
+    
+    
     });
     
 }
