@@ -22,6 +22,7 @@ html, body {
     z-index:99999;
 }
 #top_about {
+    margin-top: 76px;
     height: 150px;
     background-color: #8dc349 !important;
 }
