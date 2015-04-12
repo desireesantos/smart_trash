@@ -175,7 +175,34 @@ html, body {
     border-top-right-radius: 3px;
     overflow-x: hidden;
     display: inline-block;
-    min-height: 350px;
-    min-width: 700px;
+    min-height: 320px;
+    min-width: 600px;
     padding: 20px 30px;
+    border-radius: 8px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+}
+
+.modal h2 {
+    font-size: 36px;
+    border-bottom: 2px solid green;
+    padding-bottom: 9px;
+    margin: 0px 0px 15px 0px;
+}
+
+.modal h3 {
+    font-size: 26px;
+    color: #222222;
+    text-align: center;
+}
+
+.modal button {
+    float: right;
+    border: 1px solid green;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 18px;
 }
