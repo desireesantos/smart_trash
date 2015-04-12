@@ -9,6 +9,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: white;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 #top_bar{
@@ -30,7 +32,7 @@ html, body {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-#content p{
+p{
   color: black;
   font-size: 20px; 
   margin: 4em 15% 10em;
@@ -57,9 +59,7 @@ html, body {
 	font-size: 20px; 
 }
 
-#map-canvas {
-	position: absolute;
-	top: 77px;  
+#map-canvas { 
 	height: 100%; 
 	margin: 0; 
 	padding: 0;
