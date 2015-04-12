@@ -1,4 +1,4 @@
-var trashs = {};
+var trashs = { };
 
 var position = {
     '0': { lat: -29.978039, lng: -51.114759 },
@@ -11,23 +11,25 @@ var counter = {
 }
 
 function save(id, value) {
-    trashs[id] = { 
+
+    trashs[id] = {
+        id: id,
         value: value,
-        empty: value < 10,    
+        empty: value > 10,    
         date: new Date(),
         position : position[id],
         counter: ++counter[id]
     };
+    
     return trashs[id];
- } 
-
-function get(id) {
-    return trashs[id] || {};
-}
+} 
 
 // exporta os metodos
 module.exports = {
     save: save,
-    get: get,
     all: trashs
 };
+
+// initial data
+save(0, 200);
+save(1, 200);
