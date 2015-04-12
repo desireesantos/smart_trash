@@ -70,16 +70,6 @@ html, body {
     font-size: 30px; 
 }
 
-#map-canvas span{
-background-color: gray ;
-opacity: 0.4;
-    filter: alpha(opacity=40);    
-border-radius:50%;
-border-color: black;
--moz-border-radius:50%;
--webkit-border-radius:50%;
-}
-
 #map-canvas {
     position: absolute;
     top: 77px;  
@@ -121,7 +111,6 @@ border-color: black;
 }
 
 .helper-content li {
-    
     font-size: 1.4em;
     display: inline-block;
     width: 190px;

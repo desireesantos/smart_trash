@@ -21,11 +21,6 @@ app.get('/coleta/:id/:value', function (req, res) {
     res.send(value);
 });
 
-// usado apenas para debug
-// app.get('/coleta/listall', function (req, res) {
-//     res.send(trashs.all);  
-// });
-
-http.listen(3000 || 80, function(){
+http.listen(process.env.PORT || 80, function(){
   console.log('listening on *:' + (process.env.PORT || 80));
 });
