@@ -12,7 +12,6 @@ io.on('connection', function(socket){
 // Routing static files
 app.use(express.static('client'));
 
-
 // Save new collect value
 app.get('/coleta/:id/:value', function (req, res) {
     var id = req.params.id;
@@ -27,6 +26,6 @@ app.get('/coleta/:id/:value', function (req, res) {
 //     res.send(trashs.all);  
 // });
 
-http.listen(process.env.PORT || 80, function(){
+http.listen(3000 || 80, function(){
   console.log('listening on *:' + (process.env.PORT || 80));
 });
